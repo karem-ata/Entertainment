@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item app:showAsAction="always"
+        android:id="@+id/moviesNavigationbar"
+        android:title="@string/movies_navigationBar"
+        android:icon="@drawable/movie_icon"
+        />
+
+    <item app:showAsAction="ifRoom"
+        android:id="@+id/tvNavigationbar"
+        android:title="@string/Tv_navigationBar"
+        android:icon="@drawable/tv_icon" />
+</menu>

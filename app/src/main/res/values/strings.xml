@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Entertainment</string>
+    <string name="movies_navigationBar">Movies</string>
+    <string name="Tv_navigationBar">TV</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top rated</string>
+    <string name="now_playing">Now playing</string>
+    <string name="upcoming_movies">UpComing</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trending">Trending</string>
+    <string name="on_air_tv">On Air</string>
+    <string name="show_more">show more</string>
+    <string name="title_activity_movie_details">MovieDetailsActivity</string>
+    <string name="info_fragment_add_rate">Add rating</string>
+    <string name="info_fragment_your_rating">Your rating</string>
+    <string name="info_fragment_crew">Crew</string>
+    <string name="info_fragment_trailer">Trailers</string>
+    <string name="info_fragment_media">Media</string>
+    <string name="info_fragment_details">Details</string>
+    <string name="info_fragment_poster">Posters</string>
+    <string name="info_fragment_backdrops">Backdrops</string>
+    <string name="info_fragment_release_date">Release date</string>
+    <string name="info_fragment_revenue">Revenue</string>
+    <string name="info_fragment_languages">Original Language</string>
+    <string name="info_fragment_status">status</string>
+    <string name="info_fragment_tag_line">TagLine</string>
+    <string name="info_fragment_run_time">RunTime</string>
+    <string name="info_fragment_budget">Budget</string>
+    <string name="info_fragment_original_name">Original name</string>
+    <string name="info_fragment_production_companies">Production Companies</string>
+    <string name="info_first_air_date">First Air Date</string>
+    <string name="info_last_air_date">Last Air Date</string>
+    <string name="info_seasons_no">Seasons No</string>
+
+</resources>

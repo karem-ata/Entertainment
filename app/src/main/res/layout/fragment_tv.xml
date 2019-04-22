@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/layoutBackground"
+        android:orientation="vertical"
+        tools:context=".EntertainmentHomeFragments.TvFragment">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/onAirTvCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackground"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/onAirTextTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/tv_icon"
+                    android:text="@string/on_air_tv"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/onAirRecyclerViewTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="223dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/onAirTextTv"
+                    app:layout_constraintTop_toBottomOf="@+id/onAirTextTv"
+                    tools:listitem="@layout/entertainment_recycler_view_item" />
+
+                <ImageButton
+                    android:id="@+id/showAllOnAirTv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/cardBackground"
+                    android:src="@drawable/more_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/loadingOnAirTv"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/onAirRecyclerViewTv"
+                    app:layout_constraintStart_toStartOf="@+id/onAirRecyclerViewTv"
+                    app:layout_constraintTop_toTopOf="@+id/onAirRecyclerViewTv" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/trendingTvCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackground"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/trendingTextTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/tv_icon"
+                    android:text="@string/trending"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/trendingTvCard" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/trendingRecyclerViewTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/trendingTextTv"
+                    app:layout_constraintTop_toBottomOf="@+id/trendingTextTv"
+                    tools:listitem="@layout/entertainment_recycler_view_item" />
+
+                <ImageButton
+                    android:id="@+id/showAllTrendingTv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/cardBackground"
+                    android:src="@drawable/more_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/trendingTvCard" />
+
+                <ProgressBar
+                    android:id="@+id/loadingTrendingTv"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/trendingRecyclerViewTv"
+                    app:layout_constraintStart_toStartOf="@+id/trendingRecyclerViewTv"
+                    app:layout_constraintTop_toTopOf="@+id/trendingRecyclerViewTv" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/topRatedTvCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackground"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/topRatedTextTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/tv_icon"
+                    android:text="@string/top_rated"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/topRatedTvCard" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topRatedRecyclerViewTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/topRatedTextTv"
+                    app:layout_constraintTop_toBottomOf="@+id/topRatedTextTv"
+                    tools:listitem="@layout/entertainment_recycler_view_item" />
+
+                <ImageButton
+                    android:id="@+id/showAllTopRatedTv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/cardBackground"
+                    android:src="@drawable/more_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/topRatedTvCard" />
+
+                <ProgressBar
+                    android:id="@+id/loadingTopRatedTv"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/topRatedRecyclerViewTv"
+                    app:layout_constraintStart_toStartOf="@+id/topRatedRecyclerViewTv"
+                    app:layout_constraintTop_toTopOf="@+id/topRatedRecyclerViewTv" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            app:cardCornerRadius="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/popularTvCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackground"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/popularTextTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/tv_icon"
+                    android:text="@string/popular"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/popularTvCard" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/popularRecyclerViewTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/popularTextTv"
+                    app:layout_constraintTop_toBottomOf="@+id/popularTextTv"
+                    tools:listitem="@layout/entertainment_recycler_view_item" />
+
+                <ImageButton
+                    android:id="@+id/showAllPopularTv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/cardBackground"
+                    android:src="@drawable/more_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/popularTvCard" />
+
+                <ProgressBar
+                    android:id="@+id/loadingPopularTv"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/popularRecyclerViewTv"
+                    app:layout_constraintStart_toStartOf="@+id/popularRecyclerViewTv"
+                    app:layout_constraintTop_toTopOf="@+id/popularRecyclerViewTv" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

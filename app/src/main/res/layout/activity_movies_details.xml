@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.karem.entertainment.activities.MovieDetailsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/moviesDetailsAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/moviesDetailsCollapsingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@android:color/transparent">
+
+            <android.support.constraint.ConstraintLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@color/cardBackground"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/moviesDetailsSliderViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="196dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </android.support.v4.view.ViewPager>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/movieDetailsSliderTabLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/moviesDetailsSliderViewPager"
+                    app:layout_constraintStart_toEndOf="@+id/movieProfileImageView"
+                    app:tabBackground="@drawable/tab_layout_selector"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMaxWidth="8dp"
+                    tools:layout_width="196dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/movieProfileImageView"
+                    android:layout_width="134dp"
+                    android:layout_height="134dp"
+                    android:layout_marginStart="8dp"
+                    android:scaleType="centerCrop"
+                    app:civ_border_color="@color/cardBackground"
+                    app:civ_border_width="4dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/movieDetailsSliderTabLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movieDetailsSliderTabLayout" />
+
+                <TextView
+                    android:id="@+id/movieTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:typeface="normal"
+                    app:layout_constraintStart_toStartOf="@+id/movieProfileImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/movieProfileImageView"
+                    tools:text="Venom" />
+
+                <TextView
+                    android:id="@+id/movieGenreTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView"
+                    tools:text="2018" />
+
+            </android.support.constraint.ConstraintLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:minHeight="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.AppBarOverlay"
+                app:layout_collapseMode="pin">
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/movieDetailsFragmentsTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            app:tabMode="fixed"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill"
+            android:background="@color/cardBackground"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/movieDetailsFragmentsViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardBackground"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>
