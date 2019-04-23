@@ -29,16 +29,6 @@ class EntertainmentDetailsActivityPresenter(private val view: MovieDetailsContra
         this.tvInfo = tvInfo
         isEntertainmentInfoResponseFinished = true
         initFragmentViewPager()
-        val imageUrlKey = this.tvInfo?.posterPath
-        val imageUrl = getImageUrl(imageUrlKey)
-        val genre = getMovieGenres(this.tvInfo?.genres!!)
-        Log.e("ttt", tvInfo.originalTitle)
-
-        view.apply {
-            setEntertainmentGenre(genre)
-            setEntertainmentPoster(imageUrl)
-            setMovieTitle(this@EntertainmentDetailsActivityPresenter.tvInfo?.title)
-        }
     }
 
     override fun loadEntertainmentData(entertainmentId: Int, entertainmentType: String) {
@@ -68,15 +58,6 @@ class EntertainmentDetailsActivityPresenter(private val view: MovieDetailsContra
         this.movieInfo = movieInfo
         isEntertainmentInfoResponseFinished = true
         initFragmentViewPager()
-        val imageUrlKey = movieInfo.posterPath
-        val imageUrl = getImageUrl(imageUrlKey)
-        val genre = getMovieGenres(movieInfo.genres!!)
-
-        view.apply {
-            setEntertainmentGenre(genre)
-            setEntertainmentPoster(imageUrl)
-            setMovieTitle(movieInfo.title!!)
-        }
     }
 
     private fun getImageUrl(imageUrl: String?): String {
@@ -102,16 +83,16 @@ class EntertainmentDetailsActivityPresenter(private val view: MovieDetailsContra
     }
 
     override fun onMovieImagesCallFinished(entertainmentImages: EntertainmentImagesResponse) {
+
         this.entertainmentImages = entertainmentImages
         isEntertainmentImagesResponseFinished = true
-
-        initFragmentViewPager()
 
         movieSliderImagesUrl = getMovieSliderImages(entertainmentImages.backdrops!!)
         if (movieSliderImagesUrl != null && movieSliderImagesUrl!!.size > 0) {
             movieSliderImagesUrl?.add(movieSliderImagesUrl?.get(0))
-            setViewPager()
         }
+
+        initFragmentViewPager()
     }
 
     override fun startDetailsActivity(entertainmentId: Int?, entertainmentType: String) {
@@ -155,16 +136,43 @@ class EntertainmentDetailsActivityPresenter(private val view: MovieDetailsContra
         view.openMovieTrailer(trailerUri)
     }
 
-    private fun setViewPager() {
-        view.initMovieBackdropsViewPager()
-    }
-
     private fun initFragmentViewPager() {
         if (isMovieDetailsCallsFinished()) {
+            view.setActivityLayout()
+
+            setActivityLayout()
             if (movieInfo != null)
                 view.initFragmentViewPager(movieInfo, null, entertainmentImages, entertainmentTrailers)
             else {
                 view.initFragmentViewPager(null, tvInfo, entertainmentImages, entertainmentTrailers)
+            }
+        }
+    }
+
+    private fun setActivityLayout() {
+
+        view.initMovieBackdropsViewPager()
+
+        if (tvInfo != null) {
+            val imageUrlKey = this.tvInfo?.posterPath
+            val imageUrl = getImageUrl(imageUrlKey)
+            val genre = getMovieGenres(this.tvInfo?.genres!!)
+
+            view.apply {
+                setEntertainmentGenre(genre)
+                setEntertainmentPoster(imageUrl)
+                setMovieTitle(this@EntertainmentDetailsActivityPresenter.tvInfo?.originalTitle)
+            }
+        } else {
+
+            val imageUrlKey = movieInfo?.posterPath
+            val imageUrl = getImageUrl(imageUrlKey)
+            val genre = getMovieGenres(movieInfo?.genres!!)
+
+            view.apply {
+                setEntertainmentGenre(genre)
+                setEntertainmentPoster(imageUrl)
+                setMovieTitle(movieInfo?.title!!)
             }
         }
     }

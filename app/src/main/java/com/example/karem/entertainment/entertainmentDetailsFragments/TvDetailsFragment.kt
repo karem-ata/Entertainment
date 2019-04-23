@@ -14,11 +14,14 @@ import java.lang.StringBuilder
 
 class TvDetailsFragment : Fragment(), DetailsFragmentCommunication {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var tvDetails: TvInfoResponse
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setTVView()
     }
 
-    override fun setTvDetails(tvDetails: TvInfoResponse) {
+    private fun setTVView() {
         tvOriginalNameTextView.text = tvDetails.originalTitle
         movieOriginalLanguageTextView.text = tvDetails.originalLanguage
         movieFirstAirDateTextView.text = tvDetails.firstAirDate
@@ -33,7 +36,10 @@ class TvDetailsFragment : Fragment(), DetailsFragmentCommunication {
             }
             producionCompaniesText.removeSuffix(", ")
         }
-        tvProductionCompaniesTextView.text = producionCompaniesText
+        tvProductionCompaniesTextView.text = producionCompaniesText }
+
+    override fun setTvDetails(tvDetails: TvInfoResponse) {
+      this.tvDetails = tvDetails
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

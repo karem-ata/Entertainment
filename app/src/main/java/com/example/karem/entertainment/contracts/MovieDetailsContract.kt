@@ -14,6 +14,7 @@ interface MovieDetailsContract {
     }
 
     interface View{
+        fun setActivityLayout()
         fun startDetailsActivity(entertainmentId: Int?, entertainmentType: String)
         fun openMovieTrailer(trailerUri: Uri)
         fun setEntertainmentPoster(imageUrl: String)

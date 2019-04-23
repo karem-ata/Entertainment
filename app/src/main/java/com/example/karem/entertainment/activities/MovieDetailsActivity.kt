@@ -28,10 +28,9 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movies_details)
+        setContentView(R.layout.loading_layout)
         setEntertainmentDetailsArguments()
         requestData()
-        setAppBarLayoutListener()
     }
 
     private fun setEntertainmentDetailsArguments() {
@@ -66,6 +65,7 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {
         movieDetailsSliderTabLayout.removeTabAt(entertainmentDetailsActivityPresenter.getSliderImagesCount() - 1)
     }
 
+
     private fun setupViewPagerListener() {
         moviesDetailsSliderViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
@@ -80,6 +80,11 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsContract.View {
                 entertainmentDetailsActivityPresenter.handleCurrentPagerItem(position)
             }
         })
+    }
+
+    override fun setActivityLayout() {
+        setContentView(R.layout.activity_movies_details)
+        setAppBarLayoutListener()
     }
 
     override fun setEntertainmentPoster(imageUrl: String) {
